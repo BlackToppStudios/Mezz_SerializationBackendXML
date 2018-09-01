@@ -34,8 +34,8 @@ install:
 script:
   - ninja
   - ./Mezz_SerializationBackendXML
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]] ; then valgrind --tool=memcheck --leak-check=full --error-exitcode=1 ./Mezz_SerializationBackendXML; fi
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]] ; then valgrind --tool=memcheck --leak-check=full --error-exitcode=1 ./Mezz_SerializationBackendXML Debug All; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]] ; then valgrind --tool=memcheck --leak-check=full --error-exitcode=1 ./Mezz_SerializationBackendXML_Tester; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]] ; then valgrind --tool=memcheck --leak-check=full --error-exitcode=1 ./Mezz_SerializationBackendXML_Tester Debug All; fi
 
 after_success:
   - ninja TestCoverage
