@@ -57,7 +57,7 @@ pipeline {
                         dir('build-debug') { sh """
                             cmake -G"Ninja" .. -DCMAKE_BUILD_TYPE=DEBUG -DMEZZ_BuildDoxygen=OFF -DMEZZ_CodeCoverage=OFF &&
                             ninja &&
-                            ./Mezz_SerializationBackendXML_Tester xml
+                            ./SerializationBackendXML_Tester xml
                         """ }
                     }
                     post {
@@ -74,7 +74,7 @@ pipeline {
                             export PATH='$PATH:/usr/local/bin/' &&
                             cmake -G"Xcode" .. -DCMAKE_BUILD_TYPE=DEBUG -DMEZZ_BuildDoxygen=OFF -DMEZZ_CodeCoverage=OFF &&
                             cmake --build . &&
-                           ./Mezz_SerializationBackendXML_Tester xml
+                           ./SerializationBackendXML_Tester xml
                         """ }
                     }
                     post {
@@ -91,7 +91,7 @@ pipeline {
                             export MEZZ_PACKAGE_DIR=/home/pi/Code/ &&
                             cmake -G"Ninja" .. -DCMAKE_BUILD_TYPE=DEBUG -DMEZZ_BuildDoxygen=OFF -DMEZZ_CodeCoverage=OFF &&
                             ninja &&
-                            ./Mezz_SerializationBackendXML_Tester xml
+                            ./SerializationBackendXML_Tester xml
                          """ }
                     }
                     post {
@@ -107,7 +107,7 @@ pipeline {
                         dir('build-debug') { sh """
                             cmake -G"Ninja" .. -DCMAKE_BUILD_TYPE=DEBUG -DMEZZ_BuildDoxygen=OFF -DMEZZ_CodeCoverage=OFF &&
                             ninja  &&
-                            ./Mezz_SerializationBackendXML_Tester xml
+                            ./SerializationBackendXML_Tester xml
                          """ }
                      }
                      post {
@@ -123,7 +123,7 @@ pipeline {
                         dir('build-debug') { sh """
                             cmake -G"Ninja" .. -DCMAKE_BUILD_TYPE=DEBUG -DMEZZ_BuildDoxygen=OFF -DMEZZ_CodeCoverage=OFF &&
                             ninja &&
-                            node Mezz_SerializationBackendXML_Tester.js NoThreads
+                            node SerializationBackendXML_Tester.js NoThreads
                         """ }
                     }
                     // Don't capture Emscripten logs, because it cannot make files
@@ -135,7 +135,7 @@ pipeline {
                         dir('build-debug') { sh """
                             cmake -G"Ninja" .. -DCMAKE_BUILD_TYPE=DEBUG -DMEZZ_BuildDoxygen=OFF -DMEZZ_CodeCoverage=OFF &&
                             ninja &&
-                            ./Mezz_SerializationBackendXML_Tester xml
+                            ./SerializationBackendXML_Tester xml
                         """ }
                     }
                     post {
@@ -151,7 +151,7 @@ pipeline {
                         dir('build-debug') {
                             bat 'cmake -G"Ninja" .. -DCMAKE_BUILD_TYPE=DEBUG -DMEZZ_BuildDoxygen=OFF -DMEZZ_CodeCoverage=OFF'
                             bat 'ninja'
-                            bat 'Mezz_SerializationBackendXML_Tester xml'
+                            bat 'SerializationBackendXML_Tester xml'
                         }
                     }
                     post {
@@ -167,7 +167,7 @@ pipeline {
                         dir('build-debug') {
                             bat 'cmake -G"Ninja" .. -DCMAKE_BUILD_TYPE=DEBUG -DMEZZ_BuildDoxygen=OFF -DMEZZ_CodeCoverage=OFF'
                             bat 'ninja'
-                            bat 'Mezz_SerializationBackendXML_Tester xml'
+                            bat 'SerializationBackendXML_Tester xml'
                         }
                     }
                     post {
@@ -183,7 +183,7 @@ pipeline {
                         dir('build-debug') {
                             bat '"C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\VC\\Auxiliary\\Build\\vcvarsall.bat" x86_amd64 && cmake -G"Visual Studio 15 2017 Win64" .. -DCMAKE_BUILD_TYPE=DEBUG -DMEZZ_BuildDoxygen=OFF -DMEZZ_CodeCoverage=OFF'
                             bat 'cmake --build .'
-                            bat 'Mezz_SerializationBackendXML_Tester xml'
+                            bat 'SerializationBackendXML_Tester xml'
                         }
                     }
                     post {
@@ -204,7 +204,7 @@ pipeline {
                         dir('build-release') { sh """
                             cmake -G"Ninja" .. -DCMAKE_BUILD_TYPE=RELEASE -DMEZZ_BuildDoxygen=OFF -DMEZZ_CodeCoverage=OFF &&
                             ninja &&
-                            ./Mezz_SerializationBackendXML_Tester xml
+                            ./SerializationBackendXML_Tester xml
                         """ }
                     }
                     post {
@@ -221,7 +221,7 @@ pipeline {
                             export PATH='$PATH:/usr/local/bin/' &&
                             cmake -G"Xcode" .. -DCMAKE_BUILD_TYPE=RELEASE -DMEZZ_BuildDoxygen=OFF -DMEZZ_CodeCoverage=OFF &&
                             cmake --build . &&
-                           ./Mezz_SerializationBackendXML_Tester xml
+                           ./SerializationBackendXML_Tester xml
                         """ }
                     }
                     post {
@@ -238,7 +238,7 @@ pipeline {
                             export MEZZ_PACKAGE_DIR=/home/pi/Code/ &&
                             cmake -G"Ninja" .. -DCMAKE_BUILD_TYPE=RELEASE -DMEZZ_BuildDoxygen=OFF -DMEZZ_CodeCoverage=OFF &&
                             ninja &&
-                            ./Mezz_SerializationBackendXML_Tester xml
+                            ./SerializationBackendXML_Tester xml
                          """ }
                     }
                     post {
@@ -254,7 +254,7 @@ pipeline {
                         dir('build-release') { sh """
                             cmake -G"Ninja" .. -DCMAKE_BUILD_TYPE=RELEASE -DMEZZ_BuildDoxygen=OFF -DMEZZ_CodeCoverage=OFF &&
                             ninja  &&
-                            ./Mezz_SerializationBackendXML_Tester xml
+                            ./SerializationBackendXML_Tester xml
                          """ }
                      }
                      post {
@@ -270,7 +270,7 @@ pipeline {
                         dir('build-release') { sh """
                             cmake -G"Ninja" .. -DCMAKE_BUILD_TYPE=RELEASE -DMEZZ_BuildDoxygen=OFF -DMEZZ_CodeCoverage=OFF &&
                             ninja &&
-                            node Mezz_SerializationBackendXML_Tester.js NoThreads
+                            node SerializationBackendXML_Tester.js NoThreads
                         """ }
                     }
                     // Don't capture Emscripten logs, because it cannot make files
@@ -282,7 +282,7 @@ pipeline {
                         dir('build-release') { sh """
                             cmake -G"Ninja" .. -DCMAKE_BUILD_TYPE=RELEASE -DMEZZ_BuildDoxygen=OFF -DMEZZ_CodeCoverage=OFF &&
                             ninja &&
-                            ./Mezz_SerializationBackendXML_Tester xml
+                            ./SerializationBackendXML_Tester xml
                         """ }
                     }
                     post {
@@ -298,7 +298,7 @@ pipeline {
                         dir('build-release') {
                             bat 'cmake -G"Ninja" .. -DCMAKE_BUILD_TYPE=RELEASE -DMEZZ_BuildDoxygen=OFF -DMEZZ_CodeCoverage=OFF'
                             bat 'ninja'
-                            bat 'Mezz_SerializationBackendXML_Tester xml'
+                            bat 'SerializationBackendXML_Tester xml'
                         }
                     }
                     post {
@@ -314,7 +314,7 @@ pipeline {
                         dir('build-release') {
                             bat 'cmake -G"Ninja" .. -DCMAKE_BUILD_TYPE=RELEASE -DMEZZ_BuildDoxygen=OFF -DMEZZ_CodeCoverage=OFF'
                             bat 'ninja'
-                            bat 'Mezz_SerializationBackendXML_Tester xml'
+                            bat 'SerializationBackendXML_Tester xml'
                         }
                     }
                     post {
@@ -330,7 +330,7 @@ pipeline {
                         dir('build-release') {
                             bat '"C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\VC\\Auxiliary\\Build\\vcvarsall.bat" x86_amd64 && cmake -G"Visual Studio 15 2017 Win64" .. -DCMAKE_BUILD_TYPE=RELEASE -DMEZZ_BuildDoxygen=OFF -DMEZZ_CodeCoverage=OFF'
                             bat 'cmake --build .'
-                            bat 'Mezz_SerializationBackendXML_Tester xml'
+                            bat 'SerializationBackendXML_Tester xml'
                         }
                     }
                     post {
