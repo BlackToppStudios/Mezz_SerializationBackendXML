@@ -1,23 +1,23 @@
 // © Copyright 2010 - 2018 BlackTopp Studios Inc.
-/* This file is part of The Mezzanine Engine.
+/* This file is part of The UTF8 Conversion Library.
 
-    The Mezzanine Engine is free software: you can redistribute it and/or modify
+    The UTF8 Conversion Library is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    The Mezzanine Engine is distributed in the hope that it will be useful,
+    The UTF8 Conversion Library is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with The Mezzanine Engine.  If not, see <http://www.gnu.org/licenses/>.
+    along with The UTF8 Conversion Library.  If not, see <http://www.gnu.org/licenses/>.
 */
 /* The original authors have included a copy of the license specified above in the
-   'Docs' folder. See 'gpl.txt'
+   'doc' folder. See 'gpl.txt'
 */
-/* We welcome the use of the Mezzanine engine to anyone, including companies who wish to
+/* We welcome the use of the UTF8 Conversion Library to anyone, including companies who wish to
    Build professional software and charge for their product.
 
    However there are some practical restrictions, so if your project involves
@@ -37,17 +37,13 @@
    Joseph Toppi - toppij@gmail.com
    John Blackwood - makoenergy02@gmail.com
 */
-#ifndef Mezz_SerializationBackendXML_HeaderName_h
-#define Mezz_SerializationBackendXML_HeaderName_h
-        //template<typename ElementType, typename = std::enable_if_t< !is_static_any_v< std::remove_cv_t< std::remove_reference_t<ElementType> > > > >
+
+#include "SampleHeader.h"
 
 /// @file
-/// @brief Descriptions of declarations in SampleHeader
+/// @brief Description of the implementation of SampleSource
 
-// Put declarations here.
+// put code here
 
-/// @brief This is a sample function to prove this works.
-/// @return A number that contains the solution to life the universe and everything.
-int SampleCodeThatReturnsNumber();
-
-#endif
+int SampleCodeThatReturnsNumber()
+    { return 42; }

@@ -39,7 +39,7 @@
 */
 #ifndef Mezz_SerializationBackendXML_HeaderName_h
 #define Mezz_SerializationBackendXML_HeaderName_h
-        //template<typename ElementType, typename = std::enable_if_t< !is_static_any_v< std::remove_cv_t< std::remove_reference_t<ElementType> > > > >
+
 
 /// @file
 /// @brief Descriptions of declarations in SampleHeader
