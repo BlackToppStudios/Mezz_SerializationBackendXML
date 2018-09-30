@@ -74,9 +74,18 @@ IncludeJagatiPackage("Test")
 message(STATUS "Determining Source Files.")
 
 AddHeaderFile("SampleHeader.h")
+AddHeaderFile("XmlAttribute.h")
+AddHeaderFile("XmlBackEnd.h")
+AddHeaderFile("XmlNode.h")
+AddHeaderFile("XmlRootNode.h")
+AddHeaderFile("XmlSerialization.h")
 ShowList("Header Files:" "\t" "${SerializationBackendXMLFiles}")
 
 AddSourceFile("SampleSource.cpp")
+AddSourceFile("XmlAttribute.cpp")
+AddSourceFile("XmlBackEnd.cpp")
+AddSourceFile("XmlNode.cpp")
+AddSourceFile("XmlRootNode.cpp")
 ShowList("Source Files:" "\t" "${SerializationBackendXMLSourceFiles}")
 
 AddJagatiDoxInput("Dox.h")

@@ -37,17 +37,32 @@
    Joseph Toppi - toppij@gmail.com
    John Blackwood - makoenergy02@gmail.com
 */
-#ifndef Mezz_SerializationBackendXML_HeaderName_h
-#define Mezz_SerializationBackendXML_HeaderName_h
-
+#ifndef Mezz_SerializationBackendXML_XmlNode_h
+#define Mezz_SerializationBackendXML_XmlNode_h
 
 /// @file
-/// @brief Descriptions of declarations in SampleHeader
+/// @brief
 
-// Put declarations here.
+#include "BaseSerializationNode.h"
 
-/// @brief This is a sample function to prove this works.
-/// @return A number that contains the solution to life the universe and everything.
-int SampleCodeThatReturnsNumber();
+namespace Mezzanine {
+
+template<typename SerializationSchemeType>
+class XmlSerializationNode : public Mezzanine::BaseSerializationNode<SerializationSchemeType>
+{
+public:
+    typedef SerializationSchemeType                                 SerializationScheme;
+    typedef typename SerializationScheme::SerializationAttribute    SerializationAttribute;
+    typedef typename SerializationScheme::SerializationBackEnd      SerializationBackEnd;
+    typedef typename SerializationScheme::SerializationNode         SerializationNode;
+    typedef typename SerializationScheme::SerializationRootNode     SerializationRootNode;
+private:
+
+
+public:
+
+};
+
+}
 
 #endif

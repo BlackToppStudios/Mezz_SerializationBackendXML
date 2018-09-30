@@ -38,12 +38,8 @@
    John Blackwood - makoenergy02@gmail.com
 */
 
-#include "SampleHeader.h"
+#include "XmlRootNode.h"
 
 /// @file
 /// @brief Description of the implementation of SampleSource
 
-// put code here
-
-int SampleCodeThatReturnsNumber()
-    { return 42; }

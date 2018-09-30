@@ -37,32 +37,40 @@
    Joseph Toppi - toppij@gmail.com
    John Blackwood - makoenergy02@gmail.com
 */
-#ifndef Mezz_SerializationBackendXML_XmlAttribute_h
-#define Mezz_SerializationBackendXML_XmlAttribute_h
+#ifndef Mezz_SerializationBackendXML_XmlSerialization_h
+#define Mezz_SerializationBackendXML_XmlSerialization_h
+
+#include "XmlAttribute.h"
+#include "XmlBackEnd.h"
+#include "XmlNode.h"
+#include "XmlRootNode.h"
 
 /// @file
 /// @brief
-
-#include "BaseSerializationAttribute.h"
-
 namespace Mezzanine {
 
-template<typename SerializationSchemeType>
-class XmlSerializationAttribute : public Mezzanine::BaseSerializationAttribute<SerializationSchemeType>
+// Every Serialization system needs a "Scheme" that will define every type in
+class XmlSerializationScheme
 {
 public:
-    typedef SerializationSchemeType                                 SerializationScheme;
-    typedef typename SerializationScheme::SerializationAttribute    SerializationAttribute;
-    typedef typename SerializationScheme::SerializationBackEnd      SerializationBackEnd;
-    typedef typename SerializationScheme::SerializationNode         SerializationNode;
-    typedef typename SerializationScheme::SerializationRootNode     SerializationRootNode;
-private:
+    // Primitive types
+    typedef Mezzanine::Int32                                    NodeCount;
 
-
-public:
-
+    // Tree type heiarchy types.
+    typedef XmlSerializationScheme                              SerializationScheme;
+    typedef XmlSerializationAttribute<XmlSerializationScheme>   SerializationAttribute;
+    typedef XmlSerializationBackEnd<XmlSerializationScheme>     SerializationBackEnd;
+    typedef XmlSerializationRootNode<XmlSerializationScheme>    SerializationRootNode;
+    typedef XmlSerializationNode<XmlSerializationScheme>        SerializationNode;
 
 };
+
+
+using XmlScheme     = XmlSerializationScheme;
+using XmlAttribute  = XmlSerializationScheme::SerializationAttribute;
+using XmlBackEnd    = XmlSerializationScheme::SerializationBackEnd;
+using XmlRootNode   = XmlSerializationScheme::SerializationRootNode;
+using XmlNode       = XmlSerializationScheme::SerializationNode;
 
 }
 
