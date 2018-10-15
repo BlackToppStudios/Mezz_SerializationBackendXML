@@ -51,11 +51,18 @@ template<typename SerializationSchemeType>
 class XmlSerializationNode : public Mezzanine::BaseSerializationNode<SerializationSchemeType>
 {
 public:
-    typedef SerializationSchemeType                                 SerializationScheme;
-    typedef typename SerializationScheme::SerializationAttribute    SerializationAttribute;
-    typedef typename SerializationScheme::SerializationBackEnd      SerializationBackEnd;
-    typedef typename SerializationScheme::SerializationNode         SerializationNode;
-    typedef typename SerializationScheme::SerializationRootNode     SerializationRootNode;
+    // Scheme type
+    using SerializationScheme               = SerializationSchemeType;
+
+    // Primitive types
+    using NodeCount                         = typename SerializationScheme::NodeCount;
+    using SerializationString               = typename SerializationScheme::SerializationString;
+
+    // Tree type heiarchy types.
+    using SerializationAttribute            = typename SerializationScheme::SerializationAttribute;
+    using SerializationBackEnd              = typename SerializationScheme::SerializationBackEnd;
+    using SerializationNode                 = typename SerializationScheme::SerializationNode;
+    using SerializationRootNode             = typename SerializationScheme::SerializationRootNode;
 private:
 
 
@@ -63,6 +70,6 @@ public:
 
 };
 
-}
+} // End Mezzanine Namespace
 
 #endif

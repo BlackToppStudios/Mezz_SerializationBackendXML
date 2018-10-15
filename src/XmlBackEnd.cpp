@@ -39,7 +39,17 @@
 */
 
 #include "XmlBackEnd.h"
+#include "XmlSerialization.h"
 
 /// @file
 /// @brief Description of the implementation of SampleSource
 
+namespace Mezzanine {
+
+template<>
+Mezzanine::XmlRootNode Mezzanine::XmlBackEnd::CreateRootNode()
+{
+    return XmlRootNode();
+}
+
+} // End Mezzanine Namespace

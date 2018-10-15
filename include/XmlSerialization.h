@@ -50,27 +50,35 @@
 namespace Mezzanine {
 
 // Every Serialization system needs a "Scheme" that will define every type in
+/// @brief A description of all the types used in a Serialization Scheme.
+/// @details This is a single place to change all the types used in XML serialization.
 class XmlSerializationScheme
 {
 public:
+    // Scheme type
+    using SerializationScheme               = XmlSerializationScheme;
+
     // Primitive types
-    typedef Mezzanine::Int32                                    NodeCount;
+    using NodeCount                         = Mezzanine::Int32;
+    using SerializationString               = Mezzanine::String;
 
     // Tree type heiarchy types.
-    typedef XmlSerializationScheme                              SerializationScheme;
-    typedef XmlSerializationAttribute<XmlSerializationScheme>   SerializationAttribute;
-    typedef XmlSerializationBackEnd<XmlSerializationScheme>     SerializationBackEnd;
-    typedef XmlSerializationRootNode<XmlSerializationScheme>    SerializationRootNode;
-    typedef XmlSerializationNode<XmlSerializationScheme>        SerializationNode;
-
+    using SerializationAttribute            = XmlSerializationAttribute<XmlSerializationScheme>;
+    using SerializationBackEnd              = XmlSerializationBackEnd<XmlSerializationScheme>;
+    using SerializationNode                 = XmlSerializationNode<XmlSerializationScheme>;
+    using SerializationRootNode             = XmlSerializationRootNode<XmlSerializationScheme>;
 };
 
 
 using XmlScheme     = XmlSerializationScheme;
+
 using XmlAttribute  = XmlSerializationScheme::SerializationAttribute;
 using XmlBackEnd    = XmlSerializationScheme::SerializationBackEnd;
 using XmlRootNode   = XmlSerializationScheme::SerializationRootNode;
 using XmlNode       = XmlSerializationScheme::SerializationNode;
+
+using XmlNodeCount                         = XmlSerializationScheme::NodeCount;
+using XmlSerializationString               = XmlSerializationScheme::SerializationString;
 
 }
 

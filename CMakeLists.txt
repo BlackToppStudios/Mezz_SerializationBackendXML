@@ -86,6 +86,7 @@ AddSourceFile("XmlAttribute.cpp")
 AddSourceFile("XmlBackEnd.cpp")
 AddSourceFile("XmlNode.cpp")
 AddSourceFile("XmlRootNode.cpp")
+AddSourceFile("../lib/internal_pugixml.cpp") # This library is simple enough to include direcly
 ShowList("Source Files:" "\t" "${SerializationBackendXMLSourceFiles}")
 
 AddJagatiDoxInput("Dox.h")
@@ -96,7 +97,10 @@ ShowList("Doxygen Input Files:" "\t" "${SerializationBackendXMLDoxFiles}")
 AddJagatiLibrary()
 CreateCoverageTarget(${SerializationBackendXMLLib} "${SerializationBackendXMLSourceFiles}")
 
-AddTestFile("SampleTest.h")
+# This library is simple enough to just include.
+target_include_directories(${SerializationBackendXMLLibTarget} INTERFACE ${SerializationBackendXMLLibDir})
+
+AddTestFile("XmlSerializationSanityTest.h")
 EmitTestCode()
 AddTestTarget()
 

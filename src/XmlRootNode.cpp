@@ -38,8 +38,21 @@
    John Blackwood - makoenergy02@gmail.com
 */
 
-#include "XmlRootNode.h"
+#include "XmlSerialization.h"
+
+#include "internal_pugixml.h"
+
+//#include "
 
 /// @file
 /// @brief Description of the implementation of SampleSource
 
+namespace Mezzanine {
+
+template<>
+XmlSerializationString XmlRootNode::SerializeToString()
+{
+    return "";
+}
+
+} // End Mezzanine Namespace

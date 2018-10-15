@@ -37,40 +37,20 @@
    Joseph Toppi - toppij@gmail.com
    John Blackwood - makoenergy02@gmail.com
 */
-#ifndef Mezz_SerializationBackendXML_XmlAttribute_h
-#define Mezz_SerializationBackendXML_XmlAttribute_h
+#ifndef Mezz_SerializationBackendXML_internal_pugixml_cpp
+#define Mezz_SerializationBackendXML_internal_pugixml_cpp
 
 /// @file
-/// @brief
+/// @brief A simple source file to "wrap" the source file to avoid changing too much of pugixml with warning supression.
 
-#include "BaseSerializationAttribute.h"
+#include "DataTypes.h"
+SUPPRESS_GCC_WARNING("-Wconversion") // Pugi is sloppy about doubles to ints in ways unlikely to matter
+SUPPRESS_VC_WARNING(4548) // This was added to suppress a warning in MSVC's implementation
+                          // of malloc.h where they use a comma in an assert.
+SAVE_WARNING_STATE
 
-namespace Mezzanine {
+#include "pugixml.cpp"
 
-template<typename SerializationSchemeType>
-class XmlSerializationAttribute : public Mezzanine::BaseSerializationAttribute<SerializationSchemeType>
-{
-public:
-    // Scheme type
-    using SerializationScheme               = SerializationSchemeType;
-
-    // Primitive types
-    using NodeCount                         = typename SerializationScheme::NodeCount;
-    using SerializationString               = typename SerializationScheme::SerializationString;
-
-    // Tree type heiarchy types.
-    using SerializationAttribute            = typename SerializationScheme::SerializationAttribute;
-    using SerializationBackEnd              = typename SerializationScheme::SerializationBackEnd;
-    using SerializationNode                 = typename SerializationScheme::SerializationNode;
-    using SerializationRootNode             = typename SerializationScheme::SerializationRootNode;
-private:
-
-
-public:
-
-
-};
-
-} // End Mezzanine Namespace
+RESTORE_WARNING_STATE
 
 #endif

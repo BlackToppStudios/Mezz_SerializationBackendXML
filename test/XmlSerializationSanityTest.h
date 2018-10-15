@@ -37,40 +37,37 @@
    Joseph Toppi - toppij@gmail.com
    John Blackwood - makoenergy02@gmail.com
 */
-#ifndef Mezz_SerializationBackendXML_XmlAttribute_h
-#define Mezz_SerializationBackendXML_XmlAttribute_h
+#ifndef Mezz_SerializationBackendXML_XmlSerializationSanityTest_h
+#define Mezz_SerializationBackendXML_XmlSerializationSanityTest_h
 
 /// @file
-/// @brief
+/// @brief Tests for the stuff in SampleHeader and SampleSource
 
-#include "BaseSerializationAttribute.h"
 
-namespace Mezzanine {
+// Add other headers you need here
+#include "XmlSerialization.h"
 
-template<typename SerializationSchemeType>
-class XmlSerializationAttribute : public Mezzanine::BaseSerializationAttribute<SerializationSchemeType>
+#include "MezzTest.h"
+
+using XmlScheme                 = Mezzanine::XmlScheme;
+
+using XmlAttribute              = Mezzanine::XmlAttribute;
+using XmlBackEnd                = Mezzanine::XmlBackEnd;
+using XmlRootNode               = Mezzanine::XmlRootNode;
+using XmlNode                   = Mezzanine::XmlNode;
+
+using XmlNodeCount              = Mezzanine::XmlNodeCount;
+using XmlSerializationString    = Mezzanine::XmlSerializationString;
+
+
+// This boilerplate sucks, but it is as small as was reasonable to make it. This always matches the filename. Just
+// Put FilenameTest in for the first parameter and Filename in for the second. There are reasons for this but even
+// The developers of this havn't found a good reason to deviate, dig into the Mezz_Test docs if you want details.
+DEFAULT_TEST_GROUP(XmlSerializationSanityTest, XmlSerializationSanity)
 {
-public:
-    // Scheme type
-    using SerializationScheme               = SerializationSchemeType;
-
-    // Primitive types
-    using NodeCount                         = typename SerializationScheme::NodeCount;
-    using SerializationString               = typename SerializationScheme::SerializationString;
-
-    // Tree type heiarchy types.
-    using SerializationAttribute            = typename SerializationScheme::SerializationAttribute;
-    using SerializationBackEnd              = typename SerializationScheme::SerializationBackEnd;
-    using SerializationNode                 = typename SerializationScheme::SerializationNode;
-    using SerializationRootNode             = typename SerializationScheme::SerializationRootNode;
-private:
-
-
-public:
-
-
-};
-
-} // End Mezzanine Namespace
+    TEST_EQUAL("XmlDefaultSerializationEmpty",
+               XmlSerializationString(""),
+               XmlBackEnd().CreateRootNode().SerializeToString());
+}
 
 #endif

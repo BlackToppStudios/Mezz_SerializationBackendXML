@@ -37,29 +37,20 @@
    Joseph Toppi - toppij@gmail.com
    John Blackwood - makoenergy02@gmail.com
 */
-#ifndef Mezz_SerializationBackendXML_SmapleTest_h
-#define Mezz_SerializationBackendXML_SmapleTest_h
+#ifndef Mezz_SerializationBackendXML_internal_pugixml_h
+#define Mezz_SerializationBackendXML_internal_pugixml_h
 
 /// @file
-/// @brief Tests for the stuff in SampleHeader and SampleSource
+/// @brief A simple header to avoid changing too much of pugixml with warning supression.
 
+#include "DataTypes.h"
+SUPPRESS_GCC_WARNING("-Wconversion") // Pugi is sloppy about doubles to ints in ways unlikely to matter
+SUPPRESS_VC_WARNING(4548) // This was added to suppress a warning in MSVC's implementation
+                          // of malloc.h where they use a comma in an assert.
+SAVE_WARNING_STATE
 
-// Add other headers you need here
-#include "SampleHeader.h"
+#include "pugixml.hpp"
 
-#include "MezzTest.h"
-
-// This boilerplate sucks, but it is as small as was reasonable to make it. This always matches the filename. Just
-// Put FilenameTest in for the first parameter and Filename in for the second. There are reasons for this but even
-// The developers of this havn't found a good reason to deviate, dig into the Mezz_Test docs if you want details.
-DEFAULT_TEST_GROUP(SampleTest, Sample)
-{
-    // Put tests here! Look into the Mezz_Test docs for more assertions
-    TEST("SampleTestThatAlwaysShouldPass", 0 < 1);
-
-    TEST_EQUAL("SampleCodeThatReturnsNumber-ReturnsAnswerToLifeUniverseAndEverything",
-               42,
-               SampleCodeThatReturnsNumber());
-}
+RESTORE_WARNING_STATE
 
 #endif

@@ -39,7 +39,9 @@
 */
 
 #include "XmlAttribute.h"
+#include "XmlSerialization.h"
 
 /// @file
 /// @brief Description of the implementation of SampleSource
 
+//#include "pug
