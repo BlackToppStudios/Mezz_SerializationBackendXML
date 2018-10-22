@@ -45,6 +45,8 @@
 
 #include "BaseSerializationRootNode.h"
 
+namespace pugi { class xml_document; }
+
 namespace Mezzanine {
 
 template<typename SerializationSchemeType>
@@ -63,10 +65,21 @@ public:
     using SerializationBackEnd              = typename SerializationScheme::SerializationBackEnd;
     using SerializationNode                 = typename SerializationScheme::SerializationNode;
     using SerializationRootNode             = typename SerializationScheme::SerializationRootNode;
-private:
-
 
 public:
+    XmlSerializationRootNode();
+    XmlSerializationRootNode(const XmlSerializationRootNode&) = default;
+    XmlSerializationRootNode(XmlSerializationRootNode&&) = default;
+    virtual ~XmlSerializationRootNode() = default;
+private:
+    std::shared_ptr<pugi::xml_document> Document;
+
+public:
+
+
+
+
+
     virtual SerializationString SerializeToString() override;
 
 };

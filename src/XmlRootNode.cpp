@@ -49,10 +49,28 @@
 
 namespace Mezzanine {
 
+// copied from https://pugixml.org/docs/manual.html
+struct xml_string_writer: pugi::xml_writer
+{
+    XmlSerializationString Result;
+
+    virtual void write(const void* Data, size_t Size)
+    {
+        Result.append(static_cast<const char*>(Data), Size);
+    }
+};
+
+template<>
+XmlRootNode::XmlSerializationRootNode() : Document(new pugi::xml_document)
+    {}
+
 template<>
 XmlSerializationString XmlRootNode::SerializeToString()
 {
-    return "";
+    xml_string_writer Writer;
+    const char Space = ' ';
+    Document.get()->save(Writer, &Space, pugi::format_raw);
+    return Writer.Result;
 }
 
 } // End Mezzanine Namespace

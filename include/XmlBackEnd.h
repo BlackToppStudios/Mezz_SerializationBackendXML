@@ -67,6 +67,10 @@ private:
 
 
 public:
+
+    XmlSerializationBackEnd() = default;
+    virtual ~XmlSerializationBackEnd() = default;
+
     virtual SerializationRootNode CreateRootNode() override;
 
 };

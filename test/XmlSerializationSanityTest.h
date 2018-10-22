@@ -66,7 +66,7 @@ using XmlSerializationString    = Mezzanine::XmlSerializationString;
 DEFAULT_TEST_GROUP(XmlSerializationSanityTest, XmlSerializationSanity)
 {
     TEST_EQUAL("XmlDefaultSerializationEmpty",
-               XmlSerializationString(""),
+               XmlSerializationString("<?xml version=\"1.0\"?>"),
                XmlBackEnd().CreateRootNode().SerializeToString());
 }
 

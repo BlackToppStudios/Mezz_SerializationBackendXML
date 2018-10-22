@@ -68,6 +68,8 @@ private:
 
 public:
 
+    virtual ~XmlSerializationAttribute() = default;
+
 
 };
 

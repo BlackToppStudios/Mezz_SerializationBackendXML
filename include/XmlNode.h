@@ -68,6 +68,8 @@ private:
 
 public:
 
+    virtual ~XmlSerializationNode() = default;
+
 };
 
 } // End Mezzanine Namespace
