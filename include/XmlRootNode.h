@@ -45,7 +45,7 @@
 
 #include "BaseSerializationRootNode.h"
 
-namespace pugi { class xml_document; }
+#include "XmlInternalImplementation.h"
 
 namespace Mezzanine {
 
@@ -54,33 +54,47 @@ class XmlSerializationRootNode : public Mezzanine::BaseSerializationRootNode<Ser
 {
 public:
     // Scheme type
-    using SerializationScheme               = SerializationSchemeType;
+    using SerializationScheme       = SerializationSchemeType;
 
     // Primitive types
-    using NodeCount                         = typename SerializationScheme::NodeCount;
-    using SerializationString               = typename SerializationScheme::SerializationString;
+    using NodeCount                 = typename SerializationScheme::NodeCount;
+    using SerializationString       = typename SerializationScheme::SerializationString;
 
     // Tree type heiarchy types.
-    using SerializationAttribute            = typename SerializationScheme::SerializationAttribute;
-    using SerializationBackEnd              = typename SerializationScheme::SerializationBackEnd;
-    using SerializationNode                 = typename SerializationScheme::SerializationNode;
-    using SerializationRootNode             = typename SerializationScheme::SerializationRootNode;
+    using SerializationAttribute    = typename SerializationScheme::SerializationAttribute;
+    using SerializationBackEnd      = typename SerializationScheme::SerializationBackEnd;
+    using SerializationNode         = typename SerializationScheme::SerializationNode;
+    using SerializationRootNode     = typename SerializationScheme::SerializationRootNode;
+
+    // Internal types not part of the API
+    using SerializationInternalImplementation
+        = XmlSerializationInternalImplementation<SerializationSchemeType>;
+    using SerializationAttributeInternalImplementation
+        = XmlSerializationAttributeInternalImplementation<SerializationSchemeType>;
+    using SerializationBackEndInternalImplementation
+        = XmlSerializationBackEndInternalImplementation<SerializationSchemeType>;
+    using SerializationNodeInternalImplementation
+        = XmlSerializationNodeInternalImplementation<SerializationSchemeType>;
+    using SerializationRootNodeInternalImplementation
+        = XmlSerializationRootNodeInternalImplementation<SerializationSchemeType>;
 
 public:
     XmlSerializationRootNode();
     XmlSerializationRootNode(const XmlSerializationRootNode&) = default;
     XmlSerializationRootNode(XmlSerializationRootNode&&) = default;
+
     virtual ~XmlSerializationRootNode() = default;
+
 private:
-    std::shared_ptr<pugi::xml_document> Document;
+    class Implementation;
+    std::shared_ptr<Implementation> Instance;
 
 public:
 
-
-
-
-
     virtual SerializationString SerializeToString() override;
+
+    virtual void AddChildNode(SerializationString NodeName);
+    virtual void AddChildNode(SerializationNode Node);
 
 };
 

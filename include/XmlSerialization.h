@@ -45,9 +45,12 @@
 #include "XmlNode.h"
 #include "XmlRootNode.h"
 
+#include "XmlInternalImplementation.h"
+
 /// @file
 /// @brief
 namespace Mezzanine {
+
 
 // Every Serialization system needs a "Scheme" that will define every type in
 /// @brief A description of all the types used in a Serialization Scheme.
@@ -56,26 +59,43 @@ class XmlSerializationScheme
 {
 public:
     // Scheme type
-    using SerializationScheme               = XmlSerializationScheme;
+    using SerializationScheme                   = XmlSerializationScheme;
 
     // Primitive types
-    using NodeCount                         = Mezzanine::Int32;
-    using SerializationString               = Mezzanine::String;
+    using NodeCount                             = Mezzanine::Int32;
+    using SerializationString                   = Mezzanine::String;
 
     // Tree type heiarchy types.
-    using SerializationAttribute            = XmlSerializationAttribute<XmlSerializationScheme>;
-    using SerializationBackEnd              = XmlSerializationBackEnd<XmlSerializationScheme>;
-    using SerializationNode                 = XmlSerializationNode<XmlSerializationScheme>;
-    using SerializationRootNode             = XmlSerializationRootNode<XmlSerializationScheme>;
+    using SerializationAttribute                = XmlSerializationAttribute<XmlSerializationScheme>;
+    using SerializationBackEnd                  = XmlSerializationBackEnd<XmlSerializationScheme>;
+    using SerializationNode                     = XmlSerializationNode<XmlSerializationScheme>;
+    using SerializationRootNode                 = XmlSerializationRootNode<XmlSerializationScheme>;
+
+    // Internal types not part of the API
+    using SerializationInternalImplementation
+        = XmlSerializationInternalImplementation<XmlSerializationScheme>;
+    using SerializationAttributeInternalImplementation
+        = XmlSerializationAttributeInternalImplementation<XmlSerializationScheme>;
+    using SerializationBackEndInternalImplementation
+        = XmlSerializationBackEndInternalImplementation<XmlSerializationScheme>;
+    using SerializationNodeInternalImplementation
+        = XmlSerializationNodeInternalImplementation<XmlSerializationScheme>;
+    using SerializationRootNodeInternalImplementation
+        = XmlSerializationRootNodeInternalImplementation<XmlSerializationScheme>;
 };
 
-
-using XmlScheme     = XmlSerializationScheme;
+using XmlScheme                 = XmlSerializationScheme;
 
 using XmlAttribute  = XmlSerializationScheme::SerializationAttribute;
 using XmlBackEnd    = XmlSerializationScheme::SerializationBackEnd;
-using XmlRootNode   = XmlSerializationScheme::SerializationRootNode;
 using XmlNode       = XmlSerializationScheme::SerializationNode;
+using XmlRootNode   = XmlSerializationScheme::SerializationRootNode;
+
+using XmlImpl           = XmlSerializationScheme::SerializationInternalImplementation;
+using XmlAttributeImpl  = XmlSerializationScheme::SerializationInternalImplementation;
+using XmlBackEndImpl    = XmlSerializationScheme::SerializationInternalImplementation;
+using XmlNodeImpl       = XmlSerializationScheme::SerializationInternalImplementation;
+using XmlRootNodeImpl   = XmlSerializationScheme::SerializationInternalImplementation;
 
 using XmlNodeCount                         = XmlSerializationScheme::NodeCount;
 using XmlSerializationString               = XmlSerializationScheme::SerializationString;

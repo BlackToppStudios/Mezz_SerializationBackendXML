@@ -49,6 +49,13 @@
 
 namespace Mezzanine {
 
+template<>
+class XmlRootNode::Implementation
+{
+public:
+    pugi::xml_document Document;
+};
+
 // copied from https://pugixml.org/docs/manual.html
 struct xml_string_writer: pugi::xml_writer
 {
@@ -61,15 +68,26 @@ struct xml_string_writer: pugi::xml_writer
 };
 
 template<>
-XmlRootNode::XmlSerializationRootNode() : Document(new pugi::xml_document)
-    {}
+XmlRootNode::XmlSerializationRootNode() : Instance(std::make_shared<Implementation>())
+{}
+
+template<>
+void XmlRootNode::AddChildNode(XmlNode)
+{
+    //Instance->Document.append_child(Node.Instance);
+}
+
+template<>
+void XmlRootNode::AddChildNode(SerializationString NodeName)
+    { AddChildNode(XmlNode(NodeName)); }
+
 
 template<>
 XmlSerializationString XmlRootNode::SerializeToString()
 {
     xml_string_writer Writer;
     const char Space = ' ';
-    Document.get()->save(Writer, &Space, pugi::format_raw);
+    Instance->Document.save(Writer, &Space, pugi::format_raw);
     return Writer.Result;
 }
 

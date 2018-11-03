@@ -45,6 +45,8 @@
 
 #include "BaseSerializationAttribute.h"
 
+#include "XmlInternalImplementation.h"
+
 namespace Mezzanine {
 
 template<typename SerializationSchemeType>
@@ -52,17 +54,30 @@ class XmlSerializationAttribute : public Mezzanine::BaseSerializationAttribute<S
 {
 public:
     // Scheme type
-    using SerializationScheme               = SerializationSchemeType;
+    using SerializationScheme       = SerializationSchemeType;
 
     // Primitive types
-    using NodeCount                         = typename SerializationScheme::NodeCount;
-    using SerializationString               = typename SerializationScheme::SerializationString;
+    using NodeCount                 = typename SerializationScheme::NodeCount;
+    using SerializationString       = typename SerializationScheme::SerializationString;
 
     // Tree type heiarchy types.
-    using SerializationAttribute            = typename SerializationScheme::SerializationAttribute;
-    using SerializationBackEnd              = typename SerializationScheme::SerializationBackEnd;
-    using SerializationNode                 = typename SerializationScheme::SerializationNode;
-    using SerializationRootNode             = typename SerializationScheme::SerializationRootNode;
+    using SerializationAttribute    = typename SerializationScheme::SerializationAttribute;
+    using SerializationBackEnd      = typename SerializationScheme::SerializationBackEnd;
+    using SerializationNode         = typename SerializationScheme::SerializationNode;
+    using SerializationRootNode     = typename SerializationScheme::SerializationRootNode;
+
+    // Internal types not part of the API
+    using SerializationInternalImplementation
+        = XmlSerializationInternalImplementation<SerializationSchemeType>;
+    using SerializationAttributeInternalImplementation
+        = XmlSerializationAttributeInternalImplementation<SerializationSchemeType>;
+    using SerializationBackEndInternalImplementation
+        = XmlSerializationBackEndInternalImplementation<SerializationSchemeType>;
+    using SerializationNodeInternalImplementation
+        = XmlSerializationNodeInternalImplementation<SerializationSchemeType>;
+    using SerializationRootNodeInternalImplementation
+        = XmlSerializationRootNodeInternalImplementation<SerializationSchemeType>;
+
 private:
 
 

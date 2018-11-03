@@ -38,9 +38,27 @@
    John Blackwood - makoenergy02@gmail.com
 */
 
-#include "XmlNode.h"
+#include "XmlSerialization.h"
+
+#include "internal_pugixml.h"
 
 /// @file
-/// @brief Description of the implementation of SampleSource
+/// @brief
+
+namespace Mezzanine {
+
+template<>
+class XmlNode::Implementation
+{
+public:
+    pugi::xml_node node;
+};
 
 
+template<>
+XmlNode::XmlSerializationNode(SerializationString Name)
+{
+    Instance->node.set_name(Name.c_str());
+}
+
+} // End Mezzanine Namespace

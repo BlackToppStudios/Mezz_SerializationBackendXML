@@ -47,7 +47,7 @@
 namespace Mezzanine {
 
 template<>
-Mezzanine::XmlRootNode Mezzanine::XmlBackEnd::CreateRootNode()
+XmlRootNode XmlBackEnd::CreateRootNode()
 {
     return XmlRootNode();
 }

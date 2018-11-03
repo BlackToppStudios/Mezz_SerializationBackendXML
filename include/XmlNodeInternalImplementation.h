@@ -37,20 +37,21 @@
    Joseph Toppi - toppij@gmail.com
    John Blackwood - makoenergy02@gmail.com
 */
-#ifndef Mezz_SerializationBackendXML_XmlNode_h
-#define Mezz_SerializationBackendXML_XmlNode_h
+#ifndef Mezz_SerializationBackendXML_XmlNodeInternalImplementation_h
+#define Mezz_SerializationBackendXML_XmlNodeInternalImplementation_h
 
 /// @file
 /// @brief
 
-#include "BaseSerializationNode.h"
+#include "XmlInternalImplementation.h"
 
 #include "XmlInternalImplementation.h"
 
 namespace Mezzanine {
 
 template<typename SerializationSchemeType>
-class XmlSerializationNode : public Mezzanine::BaseSerializationNode<SerializationSchemeType>
+class XmlSerializationNodeInternalImplementation :
+        public Mezzanine::XmlSerializationInternalImplementation<SerializationSchemeType>
 {
 public:
     // Scheme type

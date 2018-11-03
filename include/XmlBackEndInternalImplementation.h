@@ -37,20 +37,19 @@
    Joseph Toppi - toppij@gmail.com
    John Blackwood - makoenergy02@gmail.com
 */
-#ifndef Mezz_SerializationBackendXML_XmlNode_h
-#define Mezz_SerializationBackendXML_XmlNode_h
+#ifndef Mezz_SerializationBackendXML_BackEndInternalImplementation_h
+#define Mezz_SerializationBackendXML_BackEndInternalImplementation_h
 
 /// @file
 /// @brief
-
-#include "BaseSerializationNode.h"
 
 #include "XmlInternalImplementation.h"
 
 namespace Mezzanine {
 
 template<typename SerializationSchemeType>
-class XmlSerializationNode : public Mezzanine::BaseSerializationNode<SerializationSchemeType>
+class XmlSerializationBackEndInternalImplementation :
+        public Mezzanine::XmlSerializationInternalImplementation<SerializationSchemeType>
 {
 public:
     // Scheme type
@@ -78,19 +77,20 @@ public:
     using SerializationRootNodeInternalImplementation
         = XmlSerializationRootNodeInternalImplementation<SerializationSchemeType>;
 private:
-    class Implementation;
-    std::shared_ptr<Implementation> Instance;
 
-    //template<typename T>
-    friend class SerializationScheme::SerializationRootNode;
+    //class Implementation;
+    //std::unique_ptr<Implementation> Impl;
+
 public:
 
-    virtual ~XmlSerializationNode() = default;
+    XmlSerializationBackEnd() = default;
+    virtual ~XmlSerializationBackEnd() = default;
 
-    XmlSerializationNode(SerializationString Name);
+    virtual SerializationRootNode CreateRootNode() override;
 
 };
 
 } // End Mezzanine Namespace
+
 
 #endif

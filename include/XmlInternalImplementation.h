@@ -37,20 +37,24 @@
    Joseph Toppi - toppij@gmail.com
    John Blackwood - makoenergy02@gmail.com
 */
-#ifndef Mezz_SerializationBackendXML_XmlNode_h
-#define Mezz_SerializationBackendXML_XmlNode_h
+#ifndef Mezz_SerializationBackendXML_XmlInternalImplementation_h
+#define Mezz_SerializationBackendXML_XmlInternalImplementation_h
 
 /// @file
 /// @brief
 
-#include "BaseSerializationNode.h"
+#include "BaseSerializationBackEnd.h"
 
-#include "XmlInternalImplementation.h"
+// Forward declarations for the expected implementations
+template<typename SerializationSchemeType> class XmlSerializationAttributeInternalImplementation;
+template<typename SerializationSchemeType> class XmlSerializationBackEndInternalImplementation;
+template<typename SerializationSchemeType> class XmlSerializationNodeInternalImplementation;
+template<typename SerializationSchemeType> class XmlSerializationRootNodeInternalImplementation;
 
 namespace Mezzanine {
 
 template<typename SerializationSchemeType>
-class XmlSerializationNode : public Mezzanine::BaseSerializationNode<SerializationSchemeType>
+class XmlSerializationInternalImplementation : public Mezzanine::BaseSerializationBackEnd<SerializationSchemeType>
 {
 public:
     // Scheme type
@@ -77,20 +81,22 @@ public:
         = XmlSerializationNodeInternalImplementation<SerializationSchemeType>;
     using SerializationRootNodeInternalImplementation
         = XmlSerializationRootNodeInternalImplementation<SerializationSchemeType>;
-private:
-    class Implementation;
-    std::shared_ptr<Implementation> Instance;
 
-    //template<typename T>
-    friend class SerializationScheme::SerializationRootNode;
 public:
 
-    virtual ~XmlSerializationNode() = default;
+    XmlSerializationInternalImplementation() = default;
+    virtual ~XmlSerializationInternalImplementation() = default;
 
-    XmlSerializationNode(SerializationString Name);
 
 };
 
+// Forward declarations for the expaced implementations
+template<typename SerializationSchemeType> class XmlSerializationAttributeInternalImplementation;
+template<typename SerializationSchemeType> class XmlSerializationBackEndInternalImplementation;
+template<typename SerializationSchemeType> class XmlSerializationNodeInternalImplementation;
+template<typename SerializationSchemeType> class XmlSerializationRootNodeInternalImplementation;
+
 } // End Mezzanine Namespace
+
 
 #endif
