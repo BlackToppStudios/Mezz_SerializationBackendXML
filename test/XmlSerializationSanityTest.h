@@ -68,6 +68,11 @@ DEFAULT_TEST_GROUP(XmlSerializationSanityTest, XmlSerializationSanity)
     TEST_EQUAL("XmlDefaultSerializationEmpty",
                XmlSerializationString("<?xml version=\"1.0\"?>"),
                XmlBackEnd().CreateRootNode().SerializeToString());
+    {
+        XmlRootNode SampleRoot = XmlBackEnd().CreateRootNode();
+
+    }
+
 }
 
 #endif

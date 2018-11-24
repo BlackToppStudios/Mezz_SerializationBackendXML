@@ -86,19 +86,19 @@ public:
 
 using XmlScheme                 = XmlSerializationScheme;
 
-using XmlAttribute  = XmlSerializationScheme::SerializationAttribute;
-using XmlBackEnd    = XmlSerializationScheme::SerializationBackEnd;
-using XmlNode       = XmlSerializationScheme::SerializationNode;
-using XmlRootNode   = XmlSerializationScheme::SerializationRootNode;
+using XmlAttribute              = XmlSerializationScheme::SerializationAttribute;
+using XmlBackEnd                = XmlSerializationScheme::SerializationBackEnd;
+using XmlNode                   = XmlSerializationScheme::SerializationNode;
+using XmlRootNode               = XmlSerializationScheme::SerializationRootNode;
 
-using XmlImpl           = XmlSerializationScheme::SerializationInternalImplementation;
-using XmlAttributeImpl  = XmlSerializationScheme::SerializationInternalImplementation;
-using XmlBackEndImpl    = XmlSerializationScheme::SerializationInternalImplementation;
-using XmlNodeImpl       = XmlSerializationScheme::SerializationInternalImplementation;
-using XmlRootNodeImpl   = XmlSerializationScheme::SerializationInternalImplementation;
+using XmlImpl                   = XmlSerializationScheme::SerializationInternalImplementation;
+using XmlAttributeImpl          = XmlSerializationScheme::SerializationAttributeInternalImplementation;
+using XmlBackEndImpl            = XmlSerializationScheme::SerializationBackEndInternalImplementation;
+using XmlNodeImpl               = XmlSerializationScheme::SerializationNodeInternalImplementation;
+using XmlRootNodeImpl           = XmlSerializationScheme::SerializationRootNodeInternalImplementation;
 
-using XmlNodeCount                         = XmlSerializationScheme::NodeCount;
-using XmlSerializationString               = XmlSerializationScheme::SerializationString;
+using XmlNodeCount              = XmlSerializationScheme::NodeCount;
+using XmlSerializationString    = XmlSerializationScheme::SerializationString;
 
 }
 

@@ -39,51 +39,53 @@
 */
 
 #include "XmlSerialization.h"
-#include "XmlRootNodeInternalImplementation.h"
+#include "XmlInternalImplementation.h"
 
 
 #include "internal_pugixml.h"
 
-//#include "
 
 /// @file
-/// @brief Description of the implementation of SampleSource
+/// @brief
 
 namespace Mezzanine {
 
-// copied from https://pugixml.org/docs/manual.html
-struct xml_string_writer : public pugi::xml_writer
+//virtual SerializationAttributeInternalImplementation AsAttributeImplementation() const;
+/*template<>
+XmlSerializationInternalImplementation<XmlScheme>::SerializationAttributeInternalImplementation
+    XmlSerializationInternalImplementation<XmlScheme>::AsAttributeImplementation() const
 {
-    XmlSerializationString Result;
 
-    virtual void write(const void* Data, size_t Size)
-    {
-        Result.append(static_cast<const char*>(Data), Size);
-    }
-};
+}
+*/
 
-template<>
-XmlRootNode::XmlSerializationRootNode() : Instance(std::make_shared<XmlRootNodeImpl>())
-{}
-
-template<>
-void XmlRootNode::AddChildNode(XmlNode)
+XmlAttributeImpl XmlImpl::AsAttributeImplementation() const
 {
-    //Instance->Document.append_child(Node.Instance);
+
 }
 
-template<>
-void XmlRootNode::AddChildNode(SerializationString NodeName)
-    { AddChildNode(XmlNode(NodeName)); }
 
-
+/*
 template<>
-XmlSerializationString XmlRootNode::SerializeToString()
+XmlSerializationInternalImplementation<>::SerializationAttributeInternalImplementation<>&
+    XmlSerializationInternalImplementation<XmlSerializationInternalImplementation>::AsAttributeImplementation() const
 {
-    xml_string_writer Writer;
-    const char Space = ' ';
-    Instance->Document.save(Writer, &Space, pugi::format_raw);
-    return Writer.Result;
+    return dynamic_cast<SerializationAttributeInternalImplementation*>(this);
+    //return SerializationAttributeInternalImplementation();
 }
+*/
+
+
+//XmlSerializationAttributeInternalImplementation<XmlSerializationInternalImplementation::SerializationScheme>
+//template<>
+//XmlSerializationInternalImplementation<>::SerializationAttributeInternalImplementation
+//    XmlSerializationInternalImplementation<XmlScheme>::AsAttributeImplementation() const
+//{
+//    return  SerializationAttributeInternalImplementation();
+//}
+
+
+
+
 
 } // End Mezzanine Namespace

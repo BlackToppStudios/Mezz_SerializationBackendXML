@@ -43,18 +43,21 @@
 /// @file
 /// @brief
 
-#include "BaseSerializationBackEnd.h"
+#include "XmlSerialization.h"
+#include "BaseSerializationInternalImplementation.h"
+
+namespace Mezzanine {
 
 // Forward declarations for the expected implementations
+template<typename SerializationSchemeType> class XmlInternalImplementation;
 template<typename SerializationSchemeType> class XmlSerializationAttributeInternalImplementation;
 template<typename SerializationSchemeType> class XmlSerializationBackEndInternalImplementation;
 template<typename SerializationSchemeType> class XmlSerializationNodeInternalImplementation;
 template<typename SerializationSchemeType> class XmlSerializationRootNodeInternalImplementation;
 
-namespace Mezzanine {
-
 template<typename SerializationSchemeType>
-class XmlSerializationInternalImplementation : public Mezzanine::BaseSerializationBackEnd<SerializationSchemeType>
+class XmlSerializationInternalImplementation
+        : public Mezzanine::BaseSerializationInternalImplementation<SerializationSchemeType>
 {
 public:
     // Scheme type
@@ -72,29 +75,32 @@ public:
 
     // Internal types not part of the API
     using SerializationInternalImplementation
-        = XmlSerializationInternalImplementation<SerializationSchemeType>;
+        = typename SerializationScheme::SerializationInternalImplementation;
     using SerializationAttributeInternalImplementation
-        = XmlSerializationAttributeInternalImplementation<SerializationSchemeType>;
+        = typename SerializationScheme::SerializationAttributeInternalImplementation;
     using SerializationBackEndInternalImplementation
-        = XmlSerializationBackEndInternalImplementation<SerializationSchemeType>;
+        = typename SerializationScheme::SerializationBackEndInternalImplementation;
     using SerializationNodeInternalImplementation
-        = XmlSerializationNodeInternalImplementation<SerializationSchemeType>;
+        = typename SerializationScheme::SerializationNodeInternalImplementation;
     using SerializationRootNodeInternalImplementation
-        = XmlSerializationRootNodeInternalImplementation<SerializationSchemeType>;
+        = typename SerializationScheme::SerializationRootNodeInternalImplementation;
 
 public:
+
+//    virtual std::shared_ptr<SerializationRootNodeInternalImplementation> AsRootNodeImplementation() const
+//    {
+//        return std::make_shared<SerializationRootNodeInternalImplementation>();
+//    }
+
+    virtual XmlAttributeImpl AsAttributeImplementation() const;
+
+//    virtual SerializationAttributeInternalImplementation& AsAttributeImplementation() const;
 
     XmlSerializationInternalImplementation() = default;
     virtual ~XmlSerializationInternalImplementation() = default;
 
 
 };
-
-// Forward declarations for the expaced implementations
-template<typename SerializationSchemeType> class XmlSerializationAttributeInternalImplementation;
-template<typename SerializationSchemeType> class XmlSerializationBackEndInternalImplementation;
-template<typename SerializationSchemeType> class XmlSerializationNodeInternalImplementation;
-template<typename SerializationSchemeType> class XmlSerializationRootNodeInternalImplementation;
 
 } // End Mezzanine Namespace
 

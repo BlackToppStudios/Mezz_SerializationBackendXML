@@ -45,6 +45,8 @@
 
 #include "XmlInternalImplementation.h"
 
+#include "internal_pugixml.h"
+
 namespace Mezzanine {
 
 template<typename SerializationSchemeType>
@@ -67,19 +69,23 @@ public:
 
     // Internal types not part of the API
     using SerializationInternalImplementation
-        = XmlSerializationInternalImplementation<SerializationSchemeType>;
+        = typename SerializationScheme::SerializationInternalImplementation;
     using SerializationAttributeInternalImplementation
-        = XmlSerializationAttributeInternalImplementation<SerializationSchemeType>;
+        = typename SerializationScheme::SerializationAttributeInternalImplementation;
     using SerializationBackEndInternalImplementation
-        = XmlSerializationBackEndInternalImplementation<SerializationSchemeType>;
+        = typename SerializationScheme::SerializationBackEndInternalImplementation;
     using SerializationNodeInternalImplementation
-        = XmlSerializationNodeInternalImplementation<SerializationSchemeType>;
+        = typename SerializationScheme::SerializationNodeInternalImplementation;
     using SerializationRootNodeInternalImplementation
-        = XmlSerializationRootNodeInternalImplementation<SerializationSchemeType>;
+        = typename SerializationScheme::SerializationRootNodeInternalImplementation;
 
 public:
-    XmlSerializationRootNodeInternalImplementation();
 
+    pugi::xml_document Document;
+
+
+
+    XmlSerializationRootNodeInternalImplementation() = default;
     virtual ~XmlSerializationRootNodeInternalImplementation() = default;
 
 };

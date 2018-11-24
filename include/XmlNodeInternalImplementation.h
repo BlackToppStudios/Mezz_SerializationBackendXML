@@ -69,15 +69,16 @@ public:
 
     // Internal types not part of the API
     using SerializationInternalImplementation
-        = XmlSerializationInternalImplementation<SerializationSchemeType>;
+        = typename SerializationScheme::SerializationInternalImplementation;
     using SerializationAttributeInternalImplementation
-        = XmlSerializationAttributeInternalImplementation<SerializationSchemeType>;
+        = typename SerializationScheme::SerializationAttributeInternalImplementation;
     using SerializationBackEndInternalImplementation
-        = XmlSerializationBackEndInternalImplementation<SerializationSchemeType>;
+        = typename SerializationScheme::SerializationBackEndInternalImplementation;
     using SerializationNodeInternalImplementation
-        = XmlSerializationNodeInternalImplementation<SerializationSchemeType>;
+        = typename SerializationScheme::SerializationNodeInternalImplementation;
     using SerializationRootNodeInternalImplementation
-        = XmlSerializationRootNodeInternalImplementation<SerializationSchemeType>;
+        = typename SerializationScheme::SerializationRootNodeInternalImplementation;
+
 private:
     class Implementation;
     std::shared_ptr<Implementation> Instance;

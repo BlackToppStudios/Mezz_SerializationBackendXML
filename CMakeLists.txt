@@ -90,6 +90,7 @@ ShowList("Header Files:" "\t" "${SerializationBackendXMLFiles}")
 AddSourceFile("SampleSource.cpp")
 AddSourceFile("XmlAttribute.cpp")
 AddSourceFile("XmlBackEnd.cpp")
+AddSourceFile("XmlInternalImplementation.cpp")
 AddSourceFile("XmlNode.cpp")
 AddSourceFile("XmlRootNode.cpp")
 AddSourceFile("../lib/internal_pugixml.cpp") # This library is simple enough to include direcly

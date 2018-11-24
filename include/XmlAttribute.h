@@ -53,10 +53,10 @@ template<typename SerializationSchemeType>
 class XmlSerializationAttribute : public Mezzanine::BaseSerializationAttribute<SerializationSchemeType>
 {
 public:
-    // Scheme type
+    // Scheme type.
     using SerializationScheme       = SerializationSchemeType;
 
-    // Primitive types
+    // Primitive types.
     using NodeCount                 = typename SerializationScheme::NodeCount;
     using SerializationString       = typename SerializationScheme::SerializationString;
 
@@ -68,16 +68,15 @@ public:
 
     // Internal types not part of the API
     using SerializationInternalImplementation
-        = XmlSerializationInternalImplementation<SerializationSchemeType>;
+        = typename SerializationScheme::SerializationInternalImplementation;
     using SerializationAttributeInternalImplementation
-        = XmlSerializationAttributeInternalImplementation<SerializationSchemeType>;
+        = typename SerializationScheme::SerializationAttributeInternalImplementation;
     using SerializationBackEndInternalImplementation
-        = XmlSerializationBackEndInternalImplementation<SerializationSchemeType>;
+        = typename SerializationScheme::SerializationBackEndInternalImplementation;
     using SerializationNodeInternalImplementation
-        = XmlSerializationNodeInternalImplementation<SerializationSchemeType>;
+        = typename SerializationScheme::SerializationNodeInternalImplementation;
     using SerializationRootNodeInternalImplementation
-        = XmlSerializationRootNodeInternalImplementation<SerializationSchemeType>;
-
+        = typename SerializationScheme::SerializationRootNodeInternalImplementation;
 private:
 
 
