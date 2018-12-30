@@ -46,10 +46,17 @@
 
 namespace Mezzanine {
 
+
+
+//template<typename SerializationSchemeType>
+//XmlRootNode XmlBackEnd::CreateRootNode()
+//XmlSerializationBackEnd::SerializationRootNode XmlBackEnd::CreateRootNode()
+
 template<>
 XmlRootNode XmlBackEnd::CreateRootNode()
 {
     return XmlRootNode();
-}
+} // */
 
 } // End Mezzanine Namespace
+//typename SerializationSchemeType>

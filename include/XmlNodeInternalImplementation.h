@@ -49,11 +49,12 @@
 
 namespace Mezzanine {
 
-template<typename SerializationSchemeType>
-class XmlSerializationNodeInternalImplementation :
-        public Mezzanine::XmlSerializationInternalImplementation<SerializationSchemeType>
+//template<typename SerializationSchemeType>
+class XmlSerializationNodeInternalImplementation //:
+        //public Mezzanine::XmlSerializationInternalImplementation<SerializationSchemeType>
 {
 public:
+    /*
     // Scheme type
     using SerializationScheme       = SerializationSchemeType;
 
@@ -86,10 +87,10 @@ private:
     //template<typename T>
     friend class SerializationScheme::SerializationRootNode;
 public:
-
+*/
     virtual ~XmlSerializationNode() = default;
 
-    XmlSerializationNode(SerializationString Name);
+    //XmlSerializationNode(SerializationString Name);
 
 };
 

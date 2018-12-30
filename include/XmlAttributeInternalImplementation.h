@@ -49,11 +49,13 @@
 
 namespace Mezzanine {
 
-template<typename SerializationSchemeType>
-class XmlSerializationAttributeInternalImplementation :
-        public Mezzanine::XmlSerializationInternalImplementation<SerializationSchemeType>
+//template<typename SerializationSchemeType>
+//class XmlSerializationAttributeInternalImplementation :
+//        public Mezzanine::XmlSerializationInternalImplementation<SerializationSchemeType>
+class XmlSerializationAttributeInternalImplementation
 {
 public:
+/*
     // Scheme type
     using SerializationScheme       = SerializationSchemeType;
 
@@ -83,9 +85,9 @@ private:
 
 
 public:
+*/
 
-
-    virtual ~XmlSerializationAttribute() = default;
+    virtual ~XmlSerializationAttributeInternalImplementation() = default;
 
 };
 

@@ -43,24 +43,22 @@
 /// @file
 /// @brief
 
-#include "XmlSerialization.h"
-#include "BaseSerializationInternalImplementation.h"
+#include "XmlSerializationScheme.h"
 
 namespace Mezzanine {
 
 // Forward declarations for the expected implementations
-template<typename SerializationSchemeType> class XmlInternalImplementation;
-template<typename SerializationSchemeType> class XmlSerializationAttributeInternalImplementation;
-template<typename SerializationSchemeType> class XmlSerializationBackEndInternalImplementation;
-template<typename SerializationSchemeType> class XmlSerializationNodeInternalImplementation;
-template<typename SerializationSchemeType> class XmlSerializationRootNodeInternalImplementation;
+//template<typename SerializationSchemeType> class XmlInternalImplementation;
+//template<typename SerializationSchemeType> class XmlSerializationAttributeInternalImplementation;
+//template<typename SerializationSchemeType> class XmlSerializationBackEndInternalImplementation;
+//template<typename SerializationSchemeType> class XmlSerializationNodeInternalImplementation;
+//template<typename SerializationSchemeType> class XmlSerializationRootNodeInternalImplementation;
 
-template<typename SerializationSchemeType>
+//template<typename SerializationSchemeType>
 class XmlSerializationInternalImplementation
-        : public Mezzanine::BaseSerializationInternalImplementation<SerializationSchemeType>
 {
 public:
-    // Scheme type
+/*    // Scheme type
     using SerializationScheme       = SerializationSchemeType;
 
     // Primitive types
@@ -92,11 +90,15 @@ public:
 //        return std::make_shared<SerializationRootNodeInternalImplementation>();
 //    }
 
-    virtual XmlAttributeImpl AsAttributeImplementation() const;
+    XmlSerializationInternalImplementation
+
+    //virtual XmlAttributeImpl AsAttributeImplementation() const;
 
 //    virtual SerializationAttributeInternalImplementation& AsAttributeImplementation() const;
+*/
+//    XmlSerializationInternalImplementation() = default;
 
-    XmlSerializationInternalImplementation() = default;
+
     virtual ~XmlSerializationInternalImplementation() = default;
 
 

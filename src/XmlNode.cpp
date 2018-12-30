@@ -46,7 +46,7 @@
 /// @brief
 
 namespace Mezzanine {
-
+/*
 template<>
 class XmlNode::Implementation
 {
@@ -60,5 +60,6 @@ XmlNode::XmlSerializationNode(SerializationString Name)
 {
     Instance->node.set_name(Name.c_str());
 }
+*/
 
 } // End Mezzanine Namespace

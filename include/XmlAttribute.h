@@ -52,7 +52,7 @@ namespace Mezzanine {
 template<typename SerializationSchemeType>
 class XmlSerializationAttribute : public Mezzanine::BaseSerializationAttribute<SerializationSchemeType>
 {
-public:
+
     // Scheme type.
     using SerializationScheme       = SerializationSchemeType;
 
@@ -65,7 +65,7 @@ public:
     using SerializationBackEnd      = typename SerializationScheme::SerializationBackEnd;
     using SerializationNode         = typename SerializationScheme::SerializationNode;
     using SerializationRootNode     = typename SerializationScheme::SerializationRootNode;
-
+/*
     // Internal types not part of the API
     using SerializationInternalImplementation
         = typename SerializationScheme::SerializationInternalImplementation;
@@ -77,7 +77,7 @@ public:
         = typename SerializationScheme::SerializationNodeInternalImplementation;
     using SerializationRootNodeInternalImplementation
         = typename SerializationScheme::SerializationRootNodeInternalImplementation;
-private:
+        */
 
 
 public:

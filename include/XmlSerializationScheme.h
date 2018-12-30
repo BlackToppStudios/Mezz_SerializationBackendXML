@@ -37,42 +37,42 @@
    Joseph Toppi - toppij@gmail.com
    John Blackwood - makoenergy02@gmail.com
 */
-#ifndef Mezz_SerializationBackendXML_XmlSerializationSanityTest_h
-#define Mezz_SerializationBackendXML_XmlSerializationSanityTest_h
+#ifndef Mezz_SerializationBackendXML_XmlSerializationScheme_h
+#define Mezz_SerializationBackendXML_XmlSerializationScheme_h
+
+#ifndef SWIG
+    #include "DataTypes.h"
+#endif
 
 /// @file
-/// @brief Tests for the stuff in SampleHeader and SampleSource
+/// @brief
+namespace Mezzanine {
 
+template<typename SerializationSchemeType> class XmlSerializationAttribute;
+template<typename SerializationSchemeType> class XmlSerializationBackEnd;
+template<typename SerializationSchemeType> class XmlSerializationNode;
+template<typename SerializationSchemeType> class XmlSerializationRootNode;
 
-// Add other headers you need here
-#include "XmlSerialization.h"
-
-#include "MezzTest.h"
-
-using XmlScheme                 = Mezzanine::XmlScheme;
-
-using XmlAttribute              = Mezzanine::XmlAttribute;
-using XmlBackEnd                = Mezzanine::XmlBackEnd;
-using XmlNode                   = Mezzanine::XmlNode;
-using XmlRootNode               = Mezzanine::XmlRootNode;
-
-using XmlNodeCount              = Mezzanine::XmlNodeCount;
-using XmlSerializationString    = Mezzanine::XmlSerializationString;
-
-
-// This boilerplate sucks, but it is as small as was reasonable to make it. This always matches the filename. Just
-// Put FilenameTest in for the first parameter and Filename in for the second. There are reasons for this but even
-// The developers of this havn't found a good reason to deviate, dig into the Mezz_Test docs if you want details.
-DEFAULT_TEST_GROUP(XmlSerializationSanityTest, XmlSerializationSanity)
+// Every Serialization system needs a "Scheme" that will define every type in
+/// @brief A description of all the types used lin a Serialization Scheme.
+/// @details This is a single place to change all the types used in XML serialization.
+class XmlSerializationScheme
 {
-    //XmlBackEnd();
-    TEST_EQUAL("XmlDefaultSerializationEmpty",
-               XmlSerializationString("<?xml version=\"1.0\"?>"),
-               XmlBackEnd().CreateRootNode().SerializeToString());
-    {
-        XmlRootNode SampleRoot = XmlBackEnd().CreateRootNode();
+public:
 
-    }
+    // Scheme type
+    using SerializationScheme                   = XmlSerializationScheme;
+
+    // Primitive types
+    using NodeCount                             = Int32;
+    using SerializationString                   = String;
+
+    // Tree type heiarchy types.
+    using SerializationAttribute                = XmlSerializationAttribute<XmlSerializationScheme>;
+    using SerializationBackEnd                  = XmlSerializationBackEnd<XmlSerializationScheme>;
+    using SerializationNode                     = XmlSerializationNode<XmlSerializationScheme>;
+    using SerializationRootNode                 = XmlSerializationRootNode<XmlSerializationScheme>;
+};
 
 }
 

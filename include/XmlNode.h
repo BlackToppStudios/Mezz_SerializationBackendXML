@@ -53,6 +53,7 @@ template<typename SerializationSchemeType>
 class XmlSerializationNode : public Mezzanine::BaseSerializationNode<SerializationSchemeType>
 {
 public:
+
     // Scheme type
     using SerializationScheme       = SerializationSchemeType;
 
@@ -65,7 +66,7 @@ public:
     using SerializationBackEnd      = typename SerializationScheme::SerializationBackEnd;
     using SerializationNode         = typename SerializationScheme::SerializationNode;
     using SerializationRootNode     = typename SerializationScheme::SerializationRootNode;
-
+/*
     // Internal types not part of the API
     using SerializationInternalImplementation
         = typename SerializationScheme::SerializationInternalImplementation;
@@ -85,10 +86,10 @@ private:
     //template<typename T>
     friend class SerializationScheme::SerializationRootNode;
 public:
-
+*/
     virtual ~XmlSerializationNode() = default;
 
-    XmlSerializationNode(SerializationString Name);
+//    XmlSerializationNode(SerializationString Name);
 
 };
 

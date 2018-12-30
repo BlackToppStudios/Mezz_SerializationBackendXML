@@ -49,11 +49,13 @@
 
 namespace Mezzanine {
 
-template<typename SerializationSchemeType>
-class XmlSerializationRootNodeInternalImplementation :
-        public Mezzanine::XmlSerializationInternalImplementation<SerializationSchemeType>
+//template<typename SerializationSchemeType>
+//class XmlSerializationRootNodeInternalImplementation :
+//        public Mezzanine::XmlSerializationInternalImplementation<SerializationSchemeType>
+class XmlSerializationRootNodeInternalImplementation
 {
 public:
+    /*
     // Scheme type
     using SerializationScheme       = SerializationSchemeType;
 
@@ -78,7 +80,7 @@ public:
         = typename SerializationScheme::SerializationNodeInternalImplementation;
     using SerializationRootNodeInternalImplementation
         = typename SerializationScheme::SerializationRootNodeInternalImplementation;
-
+*/
 public:
 
     pugi::xml_document Document;
@@ -86,6 +88,7 @@ public:
 
 
     XmlSerializationRootNodeInternalImplementation() = default;
+
     virtual ~XmlSerializationRootNodeInternalImplementation() = default;
 
 };

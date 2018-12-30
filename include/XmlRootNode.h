@@ -49,10 +49,14 @@
 
 namespace Mezzanine {
 
+// Forward declarations
+class SerializationRootNodeInternalImplementation;
+
 template<typename SerializationSchemeType>
 class XmlSerializationRootNode : public Mezzanine::BaseSerializationRootNode<SerializationSchemeType>
 {
 public:
+
     // Scheme type
     using SerializationScheme       = SerializationSchemeType;
 
@@ -65,7 +69,7 @@ public:
     using SerializationBackEnd      = typename SerializationScheme::SerializationBackEnd;
     using SerializationNode         = typename SerializationScheme::SerializationNode;
     using SerializationRootNode     = typename SerializationScheme::SerializationRootNode;
-
+/*`
     // Internal types not part of the API
     using SerializationInternalImplementation
         = typename SerializationScheme::SerializationInternalImplementation;
@@ -79,23 +83,26 @@ public:
         = typename SerializationScheme::SerializationRootNodeInternalImplementation;
 
 public:
-    XmlSerializationRootNode();
+
     XmlSerializationRootNode(const XmlSerializationRootNode&) = default;
     XmlSerializationRootNode(XmlSerializationRootNode&&) = default;
-
-    virtual ~XmlSerializationRootNode() = default;
+*/
+    XmlSerializationRootNode();
+    virtual ~XmlSerializationRootNode();
 
 private:
 
-    std::shared_ptr<SerializationRootNodeInternalImplementation> Instance;
+    SerializationRootNodeInternalImplementation* Instance;
 
 public:
 
-    virtual SerializationString SerializeToString() override;
+/*
 
     virtual void AddChildNode(SerializationString NodeName);
     virtual void AddChildNode(SerializationNode Node);
+*/
 
+    virtual SerializationString SerializeToString() override;
 };
 
 } // End Mezzanine Namespace

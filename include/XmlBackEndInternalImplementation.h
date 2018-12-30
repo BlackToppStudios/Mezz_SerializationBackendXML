@@ -47,11 +47,13 @@
 
 namespace Mezzanine {
 
-template<typename SerializationSchemeType>
-class XmlSerializationBackEndInternalImplementation :
-        public Mezzanine::XmlSerializationInternalImplementation<SerializationSchemeType>
+//template<typename SerializationSchemeType>
+//class XmlSerializationBackEndInternalImplementation :
+//        public Mezzanine::XmlSerializationInternalImplementation<SerializationSchemeType>
+class XmlSerializationBackEndInternalImplementation
 {
 public:
+    /*
     // Scheme type
     using SerializationScheme       = SerializationSchemeType;
 
@@ -83,11 +85,11 @@ private:
     //std::unique_ptr<Implementation> Impl;
 
 public:
-
-    XmlSerializationBackEnd() = default;
+*/
+//    XmlSerializationBackEnd() = default;
     virtual ~XmlSerializationBackEnd() = default;
 
-    virtual SerializationRootNode CreateRootNode() override;
+//    virtual SerializationRootNode CreateRootNode() override;
 
 };
 

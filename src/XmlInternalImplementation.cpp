@@ -59,10 +59,11 @@ XmlSerializationInternalImplementation<XmlScheme>::SerializationAttributeInterna
 }
 */
 
+/*
 XmlAttributeImpl XmlImpl::AsAttributeImplementation() const
 {
 
-}
+}*/
 
 
 /*

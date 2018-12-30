@@ -42,8 +42,6 @@
 #include "XmlRootNodeInternalImplementation.h"
 
 
-#include "internal_pugixml.h"
-
 //#include "
 
 /// @file
@@ -62,10 +60,18 @@ struct xml_string_writer : public pugi::xml_writer
     }
 };
 
-template<>
-XmlRootNode::XmlSerializationRootNode() : Instance(std::make_shared<XmlRootNodeImpl>())
+template<typename SerializationSchemeType>
+XmlRootNode::XmlSerializationRootNode()
+    : Instance(new XmlSerializationRootNodeInternalImplementation())
 {}
 
+template<>
+XmlRootNode::~XmlSerializationRootNode()
+{
+    delete Instance;
+}
+
+/*
 template<>
 void XmlRootNode::AddChildNode(XmlNode)
 {
@@ -76,14 +82,17 @@ template<>
 void XmlRootNode::AddChildNode(SerializationString NodeName)
     { AddChildNode(XmlNode(NodeName)); }
 
-
+*/
 template<>
 XmlSerializationString XmlRootNode::SerializeToString()
 {
+    return "";
+    /*
     xml_string_writer Writer;
     const char Space = ' ';
     Instance->Document.save(Writer, &Space, pugi::format_raw);
     return Writer.Result;
+    // */
 }
 
 } // End Mezzanine Namespace

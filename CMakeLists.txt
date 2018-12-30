@@ -84,6 +84,7 @@ AddHeaderFile("XmlNodeInternalImplementation.h")
 AddHeaderFile("XmlRootNode.h")
 AddHeaderFile("XmlRootNodeInternalImplementation.h")
 AddHeaderFile("XmlSerialization.h")
+AddHeaderFile("XmlSerializationScheme.h")
 #AddHeaderFile("XmlSerializationScheme.h")
 ShowList("Header Files:" "\t" "${SerializationBackendXMLFiles}")
 

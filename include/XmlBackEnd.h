@@ -49,10 +49,19 @@
 
 namespace Mezzanine {
 
+// Forward Declarations
+class XmlSerializationAttributeInternalImplementation;
+class XmlSerializationBackEndInternalImplementation;
+class XmlSerializationNodeInternalImplementation;
+class XmlSerializationRootNodeInternalImplementation;
+
+
 template<typename SerializationSchemeType>
-class XmlSerializationBackEnd : public Mezzanine::BaseSerializationBackEnd<SerializationSchemeType>
+class XmlSerializationBackEnd : public BaseSerializationBackEnd<SerializationSchemeType>
+//class XmlSerializationBackEnd : public Mezzanine::BaseSerializationBackEnd<XmlSerializationScheme>
 {
 public:
+
     // Scheme type
     using SerializationScheme       = SerializationSchemeType;
 
@@ -66,29 +75,19 @@ public:
     using SerializationNode         = typename SerializationScheme::SerializationNode;
     using SerializationRootNode     = typename SerializationScheme::SerializationRootNode;
 
-    // Internal types not part of the API
-    using SerializationInternalImplementation
-        = typename SerializationScheme::SerializationInternalImplementation;
-    using SerializationAttributeInternalImplementation
-        = typename SerializationScheme::SerializationAttributeInternalImplementation;
-    using SerializationBackEndInternalImplementation
-        = typename SerializationScheme::SerializationBackEndInternalImplementation;
-    using SerializationNodeInternalImplementation
-        = typename SerializationScheme::SerializationNodeInternalImplementation;
-    using SerializationRootNodeInternalImplementation
-        = typename SerializationScheme::SerializationRootNodeInternalImplementation;
 
 private:
 
     //class Implementation;
-    //std::unique_ptr<Implementation> Impl;
+    XmlSerializationAttributeInternalImplementation* Implementation = nullptr;
 
 public:
 
-    XmlSerializationBackEnd() = default;
+//    XmlSerializationBackEnd() = default;
     virtual ~XmlSerializationBackEnd() = default;
 
     virtual SerializationRootNode CreateRootNode() override;
+
 
 };
 
